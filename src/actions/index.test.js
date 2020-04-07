@@ -1,6 +1,7 @@
 import { setGridAxis } from "./index";
-import { SET_GRID_AXIS } from "../enum";
+import { actionNames } from "../enum";
 
+const { SET_GRID_AXIS } = actionNames;
 const mockData = {
   axisKey: "x",
   axisValue: "3",
@@ -11,7 +12,7 @@ describe("rover actions", () => {
     const { axisKey, axisValue } = mockData;
 
     expect(setGridAxis(SET_GRID_AXIS, axisKey, axisValue)).toEqual({
-      SET_GRID_AXIS,
+      type: SET_GRID_AXIS,
       axisKey: "x",
       axisValue: "3",
     });
