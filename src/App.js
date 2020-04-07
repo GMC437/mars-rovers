@@ -4,7 +4,7 @@ import RoverPage from "./components/pages/RoverPage";
 const App = () => {
   return (
     <div>
-      <RoverPage />
+      <RoverPage pageTitle="Mars Rovers" />
     </div>
   );
 };
