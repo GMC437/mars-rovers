@@ -1,10 +1,10 @@
 import React from "react";
-
+import RoverPage from "./components/pages/RoverPage";
 
 const App = () => {
   return (
     <div>
-        Test
+      <RoverPage />
     </div>
   );
 };
