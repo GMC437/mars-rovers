@@ -5,9 +5,10 @@ import BotOutputSection from "../../bot/BotOutputSection";
 import MapSetupSection from "../../map/MapSetupSection";
 import MapViewSection from "../../map/MapViewSection";
 
-const RoverPage = () => {
+const RoverPage = ({pageTitle}) => {
   return (
     <div>
+      <h1>{pageTitle}</h1>
       <MapSetupSection />
       <BotInputSection />
       <BotOutputSection />
