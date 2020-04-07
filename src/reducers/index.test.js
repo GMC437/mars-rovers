@@ -1,7 +1,7 @@
 import { initState, roverReducer } from "./index";
 
 describe("reducers", () => {
-  describe("datasetReducer", () => {
+  describe("roverReducer", () => {
     it("should ignore unknown actions", () => {
       const data = { bots: [], type: "mockAction" };
       const { bots } = roverReducer(initState, data);
