@@ -32,4 +32,7 @@ const MapSetupSection = () => {
   );
 };
 
+MapSetupSection.propTypes = {
+};
+
 export default MapSetupSection;
