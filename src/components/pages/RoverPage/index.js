@@ -11,9 +11,9 @@ const RoverPage = ({ pageTitle }) => {
       <h1>{pageTitle}</h1>
       <MapSetupSection />
       <BotInputSection />
-      <BotOutputSection />
+      <BotOutputSection title="Bot 1" name="Peter" position="22N" route="LMLMLM" />
       <BotInputSection />
-      <BotOutputSection />
+      <BotOutputSection title="Bot 2" name="Steve" position="14E" route="RMRMRM" />
       <BotControlSection />
       <MapViewSection />
     </div>
