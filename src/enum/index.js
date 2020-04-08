@@ -1,3 +1,6 @@
 export const actionNames = {
-    SET_GRID_AXIS: "SET_GRID_AXIS"
+    SET_GRID_AXIS: "SET_GRID_AXIS",
+    SET_ROUTE: "SET_ROUTE",
+    START_ROVERS: "START_ROVERS",
+    RESET_ROVERS: "RESET_ROVERS",
 } 
