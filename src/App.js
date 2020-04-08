@@ -1,11 +1,21 @@
 import React from "react";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import styled from "styled-components";
+import { roverReducer } from "./reducers";
 import RoverPage from "./components/pages/RoverPage";
+
+const AppContainer = styled.div`
+  box-sizing: border-box;
+`;
 
 const App = () => {
   return (
-    <div>
-      <RoverPage pageTitle="Mars Rovers" />
-    </div>
+    <Provider store={createStore(roverReducer)} >
+      <AppContainer>
+        <RoverPage pageTitle="Mars Rovers" />
+      </AppContainer>
+    </Provider>
   );
 };
 
