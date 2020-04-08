@@ -1,7 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
+import styled from "styled-components";
+import { actionNames } from "../../../enum";
 
-const NumberInput = () => {
-    return <div>Number Input</div>;
-}
+const { SET_GRID_AXIS } = actionNames;
+
+const LabelStyled = styled.label`
+  margin: 5px 10px 5px 0;
+`;
+const InputStyled = styled.input`
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  text-align: center;
+  padding: 2px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+`;
+
+const updateInput = (axisKey, axisValue, setValue, event) => {
+  setValue(axisValue);
+  event(SET_GRID_AXIS, axisKey, axisValue);
+};
+
+const NumberInput = ({ axis, inputId, labelMessage, initValue, onChange }) => {
+  const [currentValue, setCurrentValue] = useState(initValue);
+  return (
+    <>
+      <LabelStyled htmlFor={inputId}>{labelMessage}</LabelStyled>
+      <InputStyled
+        id={inputId}
+        type="number"
+        min="1"
+        max="9"
+        onChange={(e) => {
+          updateInput(axis, e.target.value, setCurrentValue, onChange);
+        }}
+        value={currentValue}
+      ></InputStyled>
+    </>
+  );
+};
 
 export default NumberInput;
