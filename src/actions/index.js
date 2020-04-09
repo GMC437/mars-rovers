@@ -6,6 +6,14 @@ export const setGridAxis = (type, axisKey, axisValue) => {
   };
 };
 
+export const setCurrentPosition = (type, bot, position) => {
+    return {
+      type,
+      bot,
+      position,
+    };
+  };
+
 export const setRoute = (type, bot, route) => {
     return {
       type,
@@ -14,7 +22,7 @@ export const setRoute = (type, bot, route) => {
     };
   };
 
-export const startRovers = (type, bot, move) => {
+export const controlRover = (type, bot, move) => {
   return {
     type,
     bot,
