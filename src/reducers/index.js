@@ -13,23 +13,26 @@ export const initState = {
 
 export const roverReducer = (state = initState, action) => {
   let bot;
-  let bots;
   switch (action.type) {
     case RESET_ROVERS:
-      bots = state.bots.forEach((b) => (b.currentRoute = []));
+      const cleanedBots = state.bots.map((b) => {
+        b.currentRoute = [];
+        return b;
+      });
+
       return {
         ...state,
-        bots: [...state.bots, bot],
+        bots: [...cleanedBots],
       };
     case CONTROL_ROVER:
-      bot = state.bots.find((b) => (b.id = action.bot));
+      bot = state.bots.find((b) => b.id === action.bot);
       bot.currentRoute.push(action.move);
       return {
         ...state,
-        bots,
+        bots: [...state.bots],
       };
     case SET_CURRENT_POSITION:
-      bot = state.bots.find((b) => (b.id = action.bot));
+      bot = state.bots.find((b) => b.id === action.bot);
       bot.currentPosition = action.position;
       return {
         ...state,
