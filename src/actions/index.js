@@ -6,6 +6,12 @@ export const setGridAxis = (type, axisKey, axisValue) => {
   };
 };
 
+export const addNewBot = (type, newBot) => {
+  return {
+    type,
+    newBot
+  };
+};
 export const setBotValue = (type, bot, botKey, botValue) => {
   return {
     type,
