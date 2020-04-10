@@ -15,6 +15,7 @@ const RoverPage = ({ pageTitle }) => {
       <BotInputSection />
       <BotOutputSection title="Bot 2" name="Steve" position="14E" route="RMRMRM" />
       <BotControlSection />
+      <br />
       <MapViewSection />
     </div>
   );
