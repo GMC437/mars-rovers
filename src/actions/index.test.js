@@ -1,13 +1,27 @@
-import { setGridAxis, setRoute, controlRover, resetRovers } from "./index";
+import {
+  setGridAxis,
+  setBotValue,
+  setRoute,
+  controlRover,
+  resetRovers,
+} from "./index";
 import { actionNames } from "../enum";
 
-const { SET_GRID_AXIS, SET_ROUTE, CONTROL_ROVER, RESET_ROVERS } = actionNames;
+const {
+  SET_GRID_AXIS,
+  SET_BOT_VALUE,
+  SET_ROUTE,
+  CONTROL_ROVER,
+  RESET_ROVERS,
+} = actionNames;
 const mockData = {
   axisKey: "x",
   axisValue: "3",
   move: "L",
   route: "LMLMLM",
   bot: "bot1",
+  botKey: "name",
+  name: "Peter",
 };
 
 describe("rover actions", () => {
@@ -18,6 +32,17 @@ describe("rover actions", () => {
       type: SET_GRID_AXIS,
       axisKey: "x",
       axisValue: "3",
+    });
+  });
+
+  it(`setBotValue should create ${SET_BOT_VALUE} action`, () => {
+    const { bot, botKey, name } = mockData;
+
+    expect(setBotValue(SET_BOT_VALUE, bot, botKey, name)).toEqual({
+      type: SET_BOT_VALUE,
+      bot: "bot1",
+      botKey: "name",
+      botValue: "Peter",
     });
   });
 
