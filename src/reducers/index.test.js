@@ -1,7 +1,7 @@
 import { initState, roverReducer } from "./index";
 import { actionNames } from "../enum";
 
-const { RESET_ROVERS, CONTROL_ROVER, SET_CURRENT_POSITION } = actionNames;
+const { RESET_ROVERS, SET_BOT_VALUE, CONTROL_ROVER, SET_CURRENT_POSITION } = actionNames;
 const mockState = {
   bots: [
     {
@@ -56,6 +56,20 @@ describe("reducers", () => {
       const mockBot = bots.find((b) => b.id === mockAction.bot);
 
       expect(mockBot.currentPosition).toBe("2 1 N");
+    });
+  });
+  describe("SET_BOT_VALUE", () => {
+    it("SET_BOT_VALUE with mockState", () => {
+      const mockAction = {
+        type: SET_BOT_VALUE,
+        bot: "bot1",
+        botKey: "name",
+        botValue: "Tony",
+      };
+      const { bots } = roverReducer(mockState, mockAction);
+      const mockBot = bots.find((b) => b.id === mockAction.bot);
+
+      expect(mockBot.name).toBe("Tony");
     });
   });
   describe("roverReducer", () => {
