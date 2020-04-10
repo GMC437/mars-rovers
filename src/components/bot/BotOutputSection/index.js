@@ -11,13 +11,14 @@ const SectionContainer = styled.section`
   margin: 1px;
 `;
 
-const BotOutputSection = ({ title, name, position, route }) => {
+const BotOutputSection = ({ title, name, position, route, status }) => {
   return (
     <SectionContainer>
       <div>{title}</div>
       <div>Name: {name}</div>
       <div>Current position: {position}</div>
       <div>Current route: {route}</div>
+      <div>Current status: {status}</div>
     </SectionContainer>
   );
 };
@@ -27,6 +28,7 @@ BotOutputSection.propTypes = {
   name: propTypes.string.isRequired,
   position: propTypes.string.isRequired,
   route: propTypes.string.isRequired,
+  status: propTypes.string.isRequired,
 };
 
 export default BotOutputSection;
