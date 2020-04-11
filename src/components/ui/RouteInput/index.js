@@ -5,7 +5,7 @@ const RouteInput = ({ onClick }) => {
 
   return (
     <div>
-      <div>{route.length === 0 ? "route is empty" : route.join("")}</div>
+      <div data-testid="route" >{route.length === 0 ? "route is empty" : route.join("")}</div>
       <button
         type="button"
         value="M"
