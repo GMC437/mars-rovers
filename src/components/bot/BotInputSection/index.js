@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import BotNameInput from "../../ui/BotNameInput";
 import StartPositionInput from "../../ui/StartPositionInput";
 import RouteInput from "../../ui/RouteInput";
 import { setBotValue } from "../../../actions";
 
 const BotInputSection = ({ title, botId, xAxisSize, yAxisSize }) => {
   const dispatch = useDispatch();
-  const [botName, setBotName] = useState(title);
+  
+  const onBotNameChange = (botValue) => {
+    dispatch(setBotValue(botId, "name", botValue));
+  };
   const onStartPositionChange = (botValue) => {
     dispatch(setBotValue(botId, "startPosition", botValue));
   };
@@ -19,16 +23,7 @@ const BotInputSection = ({ title, botId, xAxisSize, yAxisSize }) => {
       Bot Input Section
       <div>{title}</div>
       <div>
-        <label htmlFor={`${botId}-name-input`}>Name: </label>
-        <input
-          id={`${botId}-name-input`}
-          type="text"
-          onChange={(e) => {
-            setBotValue(e.target.value)
-            dispatch(setBotName(botId, "name",e.target.value))
-          }}
-          value={botName}
-        ></input>
+        <BotNameInput botId={botId} title={title} onChange={onBotNameChange} /> 
       </div>
       <div>
         <StartPositionInput xAxisSize={xAxisSize} yAxisSize={yAxisSize} onChange={onStartPositionChange} />
