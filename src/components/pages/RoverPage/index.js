@@ -5,7 +5,7 @@ import BotInputSection from "../../bot/BotInputSection";
 import BotOutputSection from "../../bot/BotOutputSection";
 import MapSetupSection from "../../map/MapSetupSection";
 import MapViewSection from "../../map/MapViewSection";
-import { addNewBot } from "../../../actions";
+import { addNewBot, setGridAxis } from "../../../actions";
 
 const newBot = (index) => {
   return {
@@ -21,11 +21,13 @@ const newBot = (index) => {
 
 const RoverPage = ({ pageTitle }) => {
   const dispatch = useDispatch();
-  const { bots } = useSelector((state) => state);
+  const { bots, x, y } = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(addNewBot(newBot(1)));
     dispatch(addNewBot(newBot(2)));
+    dispatch(setGridAxis("x", 3));
+    dispatch(setGridAxis("y", 3));
   }, [dispatch]);
 
   return (
@@ -36,7 +38,12 @@ const RoverPage = ({ pageTitle }) => {
       ) : (
         <>
           <MapSetupSection />
-          <BotInputSection botId="bot1" title="Bot 1" />
+          <BotInputSection
+            botId="bot1"
+            title="Bot 1"
+            xAxisSize={x}
+            yAxisSize={y}
+          />
           <BotOutputSection
             title="Bot 1"
             name={bots[0].name}
@@ -44,7 +51,12 @@ const RoverPage = ({ pageTitle }) => {
             route={bots[0].route}
             status={bots[0].status}
           />
-          <BotInputSection botId="bot2" title="Bot 2" />
+          <BotInputSection
+            botId="bot2"
+            title="Bot 2"
+            xAxisSize={x}
+            yAxisSize={y}
+          />
           <BotOutputSection
             title="Bot 2"
             name={bots[1].name}

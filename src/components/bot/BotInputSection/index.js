@@ -9,7 +9,7 @@ const updateBotName = (botId, botKey, botValue, dispatch, action, event) => {
   dispatch(action(botId, botKey, botValue));
 };
 
-const BotInputSection = ({ title, botId }) => {
+const BotInputSection = ({ title, botId, xAxisSize, yAxisSize }) => {
   const dispatch = useDispatch();
   const [botName, setBotName] = useState(title);
 
@@ -36,7 +36,7 @@ const BotInputSection = ({ title, botId }) => {
         ></input>
       </div>
       <div>
-        <StartPositionInput xAxisSize={3} yAxisSize={3} />
+        <StartPositionInput xAxisSize={xAxisSize} yAxisSize={yAxisSize} />
       </div>
       <RouteInput />
     </section>
