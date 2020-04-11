@@ -59,7 +59,7 @@ describe("rover actions", () => {
   it(`controlRover should create ${CONTROL_ROVER} action`, () => {
     const { bot, move } = mockData;
 
-    expect(controlRover(qbot, move)).toEqual({
+    expect(controlRover(bot, move)).toEqual({
       type: CONTROL_ROVER,
       bot: "bot1",
       move: "L",
