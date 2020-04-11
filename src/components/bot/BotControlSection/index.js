@@ -8,14 +8,14 @@ import {
 } from "../../../actions";
 import { updateRover } from "../../../helper/rover";
 
-
 // botPosition, route
 const startRoversClick = (actionType, bots, dispatch) => {
   bots.forEach((bot) => {
     const { id, currentPosition } = bot;
     bot.route.split("").forEach((move) => {
       const updatePosition = updateRover(move, currentPosition);
-      dispatch(setCurrentPosition(id, updatePosition));
+      // setBotValue = (bot, botKey, botValue)
+      //   dispatch(setCurrentPosition(id, updatePosition));
       dispatch(controlRover(id, move));
     });
   });

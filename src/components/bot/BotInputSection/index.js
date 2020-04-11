@@ -4,14 +4,12 @@ import StartPositionInput from "../../ui/StartPositionInput";
 import RouteInput from "../../ui/RouteInput";
 import { setBotValue } from "../../../actions";
 
-const updateBotName = (botId, botKey, botValue, dispatch, action, event) => {
-  event(botValue);
-  dispatch(action(botId, botKey, botValue));
-};
-
 const BotInputSection = ({ title, botId, xAxisSize, yAxisSize }) => {
   const dispatch = useDispatch();
   const [botName, setBotName] = useState(title);
+  const onStartPositionChange = (botValue) => {
+    dispatch(setBotValue(botId, botValue));
+  };
 
   return (
     <section>
@@ -23,20 +21,14 @@ const BotInputSection = ({ title, botId, xAxisSize, yAxisSize }) => {
           id={`${botId}-name-input`}
           type="text"
           onChange={(e) => {
-            updateBotName(
-              botId,
-              "name",
-              e.target.value,
-              dispatch,
-              setBotValue,
-              setBotName
-            );
+            setBotValue(e.target.value)
+            dispatch(setBotName(botId, "name",e.target.value))
           }}
           value={botName}
         ></input>
       </div>
       <div>
-        <StartPositionInput xAxisSize={xAxisSize} yAxisSize={yAxisSize} />
+        <StartPositionInput xAxisSize={xAxisSize} yAxisSize={yAxisSize} onChange={onStartPositionChange} />
       </div>
       <RouteInput />
     </section>

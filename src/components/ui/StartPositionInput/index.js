@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-const updateStartPositionValue = (updatedPosition, parentEvent) => {
-  console.log(updatedPosition);
-  //   parentEvent(updatedPosition);
-};
-
-const StartPositionInput = ({ xAxisSize, yAxisSize }) => {
+const StartPositionInput = ({ xAxisSize, yAxisSize, onChange }) => {
   const [xAxisValue, setXAxisValue] = useState(0);
   const [yAxisValue, setYAxisValue] = useState(0);
   const [directionValue, setDirectionValue] = useState("N");
@@ -21,10 +16,7 @@ const StartPositionInput = ({ xAxisSize, yAxisSize }) => {
         max={xAxisSize - 1}
         onChange={(e) => {
           setXAxisValue(e.target.value);
-          updateStartPositionValue(
-            `${e.target.value} ${yAxisValue} ${directionValue}`,
-            setXAxisValue
-          );
+          onChange(`${e.target.value} ${yAxisValue} ${directionValue}`);
         }}
         value={xAxisValue}
       ></input>
@@ -36,7 +28,7 @@ const StartPositionInput = ({ xAxisSize, yAxisSize }) => {
         max={yAxisSize - 1}
         onChange={(e) => {
           setYAxisValue(e.target.value);
-          updateStartPositionValue(`${xAxisValue} ${e.target.value} ${directionValue}`, setYAxisValue);
+          onChange(`${xAxisValue} ${e.target.value} ${directionValue}`);
         }}
         value={yAxisValue}
       ></input>
@@ -46,7 +38,7 @@ const StartPositionInput = ({ xAxisSize, yAxisSize }) => {
         value={directionValue}
         onChange={(e) => {
           setDirectionValue(e.target.value);
-          updateStartPositionValue(`${xAxisValue} ${yAxisValue} ${e.target.value}`, setDirectionValue);
+          onChange(`${xAxisValue} ${yAxisValue} ${e.target.value}`);
         }}
       >
         <option value="N">North</option>
