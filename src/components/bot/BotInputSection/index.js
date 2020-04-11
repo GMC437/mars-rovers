@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import StartPositionInput from "../../ui/StartPositionInput";
 import { setBotValue } from "../../../actions";
 import { actionNames } from "../../../enum";
 
@@ -18,31 +19,34 @@ const BotInputSection = ({ title, botId }) => {
     <section>
       Bot Input Section
       <div>{title}</div>
-      <label htmlFor={`${botId}-name-input`}>Name: </label>
+      <div>
+        <label htmlFor={`${botId}-name-input`}>Name: </label>
+        <input
+          id={`${botId}-name-input`}
+          type="text"
+          onChange={(e) => {
+            updateBotName(
+              botId,
+              "name",
+              e.target.value,
+              dispatch,
+              setBotValue,
+              setBotName
+            );
+          }}
+          value={botName}
+        ></input>
+      </div>
+      <div>
+        <StartPositionInput xAxisSize={3} yAxisSize={3} />
+      </div>
+      <label htmlFor={`${botId}-route-input`}>Route: </label>
       <input
-        id={`${botId}-name-input`}
-        type="text"
-        onChange={(e) => {
-          updateBotName(
-            botId,
-            "name",
-            e.target.value,
-            dispatch,
-            setBotValue,
-            setBotName
-          );
-        }}
-        value={botName}
-      ></input>
-      <label htmlFor={`${botId}-start-position-input`}>Start Position: </label>
-      <input
-        id={`${botId}-start-position-input`}
+        id={`${botId}-route-input`}
         type="text"
         onChange={(e) => {}}
         value=""
       ></input>
-      <label htmlFor={`${botId}-route-input`}>Route: </label>
-      <input id={`${botId}-route-input`} type="text" onChange={(e) => {}} value=""></input>
     </section>
   );
 };

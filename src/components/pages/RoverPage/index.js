@@ -34,7 +34,7 @@ const RoverPage = ({ pageTitle }) => {
     <div>
       <h1>{pageTitle}</h1>
       {bots.length < 2 ? (
-        <div>rover output is loading</div>
+        <div>Mars Rovers is loading</div>
       ) : (
         <>
           <MapSetupSection />
