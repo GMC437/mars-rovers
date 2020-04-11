@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import StartPositionInput from "../../ui/StartPositionInput";
+import RouteInput from "../../ui/RouteInput";
 import { setBotValue } from "../../../actions";
-import { actionNames } from "../../../enum";
-
-const { SET_BOT_VALUE } = actionNames;
 
 const updateBotName = (botId, botKey, botValue, dispatch, action, event) => {
   event(botValue);
-  dispatch(action(SET_BOT_VALUE, botId, botKey, botValue));
+  dispatch(action(botId, botKey, botValue));
 };
 
 const BotInputSection = ({ title, botId }) => {
@@ -40,13 +38,7 @@ const BotInputSection = ({ title, botId }) => {
       <div>
         <StartPositionInput xAxisSize={3} yAxisSize={3} />
       </div>
-      <label htmlFor={`${botId}-route-input`}>Route: </label>
-      <input
-        id={`${botId}-route-input`}
-        type="text"
-        onChange={(e) => {}}
-        value=""
-      ></input>
+      <RouteInput />
     </section>
   );
 };

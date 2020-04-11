@@ -6,9 +6,7 @@ import BotOutputSection from "../../bot/BotOutputSection";
 import MapSetupSection from "../../map/MapSetupSection";
 import MapViewSection from "../../map/MapViewSection";
 import { addNewBot } from "../../../actions";
-import { actionNames } from "../../../enum";
 
-const { ADD_NEW_BOT } = actionNames;
 const newBot = (index) => {
   return {
     id: `bot${index}`,
@@ -26,8 +24,8 @@ const RoverPage = ({ pageTitle }) => {
   const { bots } = useSelector((state) => state);
 
   useEffect(() => {
-    dispatch(addNewBot(ADD_NEW_BOT, newBot(1)));
-    dispatch(addNewBot(ADD_NEW_BOT, newBot(2)));
+    dispatch(addNewBot(newBot(1)));
+    dispatch(addNewBot(newBot(2)));
   }, [dispatch]);
 
   return (

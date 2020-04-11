@@ -1,52 +1,63 @@
-export const setGridAxis = (type, axisKey, axisValue) => {
+import { actionNames } from "../enum";
+const {
+  ADD_NEW_BOT,
+  SET_GRID_AXIS,
+  SET_BOT_VALUE,
+  SET_ROUTE,
+  SET_CURRENT_POSITION,
+  CONTROL_ROVER,
+  RESET_ROVERS,
+} = actionNames;
+
+export const setGridAxis = (axisKey, axisValue) => {
   return {
-    type,
+    type: SET_GRID_AXIS,
     axisKey,
     axisValue,
   };
 };
 
-export const addNewBot = (type, newBot) => {
+export const addNewBot = (newBot) => {
   return {
-    type,
-    newBot
+    type: ADD_NEW_BOT,
+    newBot,
   };
 };
-export const setBotValue = (type, bot, botKey, botValue) => {
+export const setBotValue = (bot, botKey, botValue) => {
   return {
-    type,
+    type: SET_BOT_VALUE,
     bot,
     botKey,
-    botValue
+    botValue,
   };
 };
 
-export const setCurrentPosition = (type, bot, position) => {
+export const setCurrentPosition = (bot, position) => {
   return {
-    type,
+    type: SET_CURRENT_POSITION,
     bot,
     position,
   };
 };
 
-export const setRoute = (type, bot, route) => {
+export const setRoute = (bot, route) => {
   return {
-    type,
+    type: SET_ROUTE,
     bot,
     route,
   };
 };
 
-export const controlRover = (type, bot, move) => {
+export const controlRover = (bot, move) => {
   return {
-    type,
+    type: CONTROL_ROVER,
     bot,
     move,
   };
 };
 
-export const resetRovers = (type) => {
+export const resetRovers = () => {
   return {
-    type,
+    type: RESET_ROVERS,
   };
 };
