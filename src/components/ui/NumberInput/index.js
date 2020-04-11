@@ -22,6 +22,7 @@ const NumberInput = ({ axis, inputId, labelMessage, initValue, onChange }) => {
       <LabelStyled htmlFor={inputId}>{labelMessage}</LabelStyled>
       <InputStyled
         id={inputId}
+        data-testid={inputId}
         type="number"
         min="1"
         max="9"
