@@ -8,7 +8,10 @@ const BotInputSection = ({ title, botId, xAxisSize, yAxisSize }) => {
   const dispatch = useDispatch();
   const [botName, setBotName] = useState(title);
   const onStartPositionChange = (botValue) => {
-    dispatch(setBotValue(botId, botValue));
+    dispatch(setBotValue(botId, "startPosition", botValue));
+  };
+  const onRouteChange = (botValue) => {
+    dispatch(setBotValue(botId, "route", botValue));
   };
 
   return (
@@ -30,7 +33,7 @@ const BotInputSection = ({ title, botId, xAxisSize, yAxisSize }) => {
       <div>
         <StartPositionInput xAxisSize={xAxisSize} yAxisSize={yAxisSize} onChange={onStartPositionChange} />
       </div>
-      <RouteInput />
+      <RouteInput onClick={onRouteChange} />
     </section>
   );
 };

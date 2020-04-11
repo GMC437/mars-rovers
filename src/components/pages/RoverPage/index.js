@@ -48,7 +48,7 @@ const RoverPage = ({ pageTitle }) => {
             title="Bot 1"
             name={bots[0].name}
             position={bots[0].currentPosition}
-            route={bots[0].route}
+            route={bots[0].currentRoute.join("")}
             status={bots[0].status}
           />
           <BotInputSection
@@ -61,7 +61,7 @@ const RoverPage = ({ pageTitle }) => {
             title="Bot 2"
             name={bots[1].name}
             position={bots[1].currentPosition}
-            route={bots[1].route}
+            route={bots[1].currentRoute.join("")}
             status={bots[1].status}
           />
           <BotControlSection />
