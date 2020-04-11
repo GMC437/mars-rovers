@@ -9,8 +9,9 @@ const BotNameInput = ({ botId, title, onChange }) => {
       <label htmlFor={`${botId}-name-input`}>Name: </label>
       <input
         id={`${botId}-name-input`}
+        data-testid={`${botId}-name-input`}
         type="text"
-        onChange={({ target: { value }}) => {
+        onChange={({ target: { value } }) => {
           setBotName(value);
           onChange(value);
         }}
@@ -21,9 +22,9 @@ const BotNameInput = ({ botId, title, onChange }) => {
 };
 
 BotNameInput.propTypes = {
-    botId: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-  };
+  botId: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default BotNameInput;
