@@ -4,7 +4,6 @@ const {
   SET_GRID_AXIS,
   SET_BOT_VALUE,
   SET_ROUTE,
-  SET_CURRENT_POSITION,
   CONTROL_ROVER,
   RESET_ROVERS,
 } = actionNames;
@@ -29,14 +28,6 @@ export const setBotValue = (bot, botKey, botValue) => {
     bot,
     botKey,
     botValue,
-  };
-};
-
-export const setCurrentPosition = (bot, position) => {
-  return {
-    type: SET_CURRENT_POSITION,
-    bot,
-    position,
   };
 };
 

@@ -28,7 +28,7 @@ describe("rover actions", () => {
   it(`setGridAxis should create ${SET_GRID_AXIS} action`, () => {
     const { axisKey, axisValue } = mockData;
 
-    expect(setGridAxis(axisKey, axisValue)).toEqual({
+    expect(setGridAxis(SET_GRID_AXIS, axisKey, axisValue)).toEqual({
       type: SET_GRID_AXIS,
       axisKey: "x",
       axisValue: "3",
@@ -38,7 +38,7 @@ describe("rover actions", () => {
   it(`setBotValue should create ${SET_BOT_VALUE} action`, () => {
     const { bot, botKey, name } = mockData;
 
-    expect(setBotValue(bot, botKey, name)).toEqual({
+    expect(setBotValue(SET_BOT_VALUE, bot, botKey, name)).toEqual({
       type: SET_BOT_VALUE,
       bot: "bot1",
       botKey: "name",
@@ -49,7 +49,7 @@ describe("rover actions", () => {
   it(`setRoute should create ${SET_ROUTE} action`, () => {
     const { bot, route } = mockData;
 
-    expect(setRoute(bot, route)).toEqual({
+    expect(setRoute(SET_ROUTE, bot, route)).toEqual({
       type: SET_ROUTE,
       bot: "bot1",
       route: "LMLMLM",
@@ -59,7 +59,7 @@ describe("rover actions", () => {
   it(`controlRover should create ${CONTROL_ROVER} action`, () => {
     const { bot, move } = mockData;
 
-    expect(controlRover(bot, move)).toEqual({
+    expect(controlRover(CONTROL_ROVER, bot, move)).toEqual({
       type: CONTROL_ROVER,
       bot: "bot1",
       move: "L",
@@ -67,7 +67,7 @@ describe("rover actions", () => {
   });
 
   it(`resetRovers should create ${RESET_ROVERS} action`, () => {
-    expect(resetRovers()).toEqual({
+    expect(resetRovers(RESET_ROVERS)).toEqual({
       type: RESET_ROVERS,
     });
   });
