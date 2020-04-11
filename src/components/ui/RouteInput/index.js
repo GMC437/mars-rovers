@@ -5,13 +5,12 @@ const RouteInput = ({ onClick }) => {
 
   return (
     <div>
-      Route Input
-      <div>{route.join("")}</div>
+      <div>{route.length === 0 ? "route is empty" : route.join("")}</div>
       <button
         type="button"
         value="M"
-        onClick={(e) => {
-          setRoute([...route, e.target.value]);
+        onClick={({ target: { value } }) => {
+          setRoute([...route, value]);
           onClick(route.join(""));
         }}
       >
@@ -20,8 +19,8 @@ const RouteInput = ({ onClick }) => {
       <button
         type="button"
         value="L"
-        onClick={(e) => {
-          setRoute([...route, e.target.value]);
+        onClick={({ target: { value } }) => {
+          setRoute([...route, value]);
           onClick(route.join(""));
         }}
       >
@@ -30,8 +29,8 @@ const RouteInput = ({ onClick }) => {
       <button
         type="button"
         value="R"
-        onClick={(e) => {
-          setRoute([...route, e.target.value]);
+        onClick={({ target: { value } }) => {
+          setRoute([...route, value]);
           onClick(route.join(""));
         }}
       >

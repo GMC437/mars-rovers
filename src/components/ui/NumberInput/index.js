@@ -25,7 +25,8 @@ const NumberInput = ({ axis, inputId, labelMessage, initValue, onChange }) => {
         type="number"
         min="1"
         max="9"
-        onChange={({ target: { value }}) => {
+        onChange={({ target: { value } }) => {
+          value = value.substring(0, 1);
           setCurrentValue(value);
           onChange(axis, value);
         }}

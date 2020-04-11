@@ -7,7 +7,7 @@ import { setBotValue } from "../../../actions";
 
 const BotInputSection = ({ title, botId, xAxisSize, yAxisSize }) => {
   const dispatch = useDispatch();
-  
+
   const onBotNameChange = (botValue) => {
     dispatch(setBotValue(botId, "name", botValue));
   };
@@ -20,14 +20,13 @@ const BotInputSection = ({ title, botId, xAxisSize, yAxisSize }) => {
 
   return (
     <section>
-      Bot Input Section
       <div>{title}</div>
-      <div>
-        <BotNameInput botId={botId} title={title} onChange={onBotNameChange} /> 
-      </div>
-      <div>
-        <StartPositionInput xAxisSize={xAxisSize} yAxisSize={yAxisSize} onChange={onStartPositionChange} />
-      </div>
+      <BotNameInput botId={botId} title={title} onChange={onBotNameChange} />
+      <StartPositionInput
+        xAxisSize={xAxisSize}
+        yAxisSize={yAxisSize}
+        onChange={onStartPositionChange}
+      />
       <RouteInput onClick={onRouteChange} />
     </section>
   );

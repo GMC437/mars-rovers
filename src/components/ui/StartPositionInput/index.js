@@ -14,9 +14,10 @@ const StartPositionInput = ({ xAxisSize, yAxisSize, onChange }) => {
         type="number"
         min="0"
         max={xAxisSize - 1}
-        onChange={(e) => {
-          setXAxisValue(e.target.value);
-          onChange(`${e.target.value} ${yAxisValue} ${directionValue}`);
+        onChange={({ target: { value } }) => {
+          value = value.substring(0, 1);
+          setXAxisValue(value);
+          onChange(`${value} ${yAxisValue} ${directionValue}`);
         }}
         value={xAxisValue}
       ></input>
@@ -26,9 +27,10 @@ const StartPositionInput = ({ xAxisSize, yAxisSize, onChange }) => {
         type="number"
         min="0"
         max={yAxisSize - 1}
-        onChange={(e) => {
-          setYAxisValue(e.target.value);
-          onChange(`${xAxisValue} ${e.target.value} ${directionValue}`);
+        onChange={({ target: { value } }) => {
+          value = value.substring(0, 1);
+          setYAxisValue(value);
+          onChange(`${xAxisValue} ${value} ${directionValue}`);
         }}
         value={yAxisValue}
       ></input>
@@ -36,9 +38,9 @@ const StartPositionInput = ({ xAxisSize, yAxisSize, onChange }) => {
       <select
         id="start-direction"
         value={directionValue}
-        onChange={(e) => {
-          setDirectionValue(e.target.value);
-          onChange(`${xAxisValue} ${yAxisValue} ${e.target.value}`);
+        onChange={({ target: { value } }) => {
+          setDirectionValue(value);
+          onChange(`${xAxisValue} ${yAxisValue} ${value}`);
         }}
       >
         <option value="N">North</option>
