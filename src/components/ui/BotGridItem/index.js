@@ -1,0 +1,27 @@
+import React from "react";
+import styled from "styled-components";
+
+const Bot = styled.span`
+  height: 40px;
+  width: 40px;
+  border: 1px solid black;
+  color: white;
+  text-align: center;
+  background-color: #8e44ad;
+  flex-basis: 45%;
+`;
+
+const BotContent = styled.div`
+  height: 50%;
+`;
+
+const BotGridItem = ({ name, orientation }) => {
+  return (
+    <Bot>
+      <BotContent>{orientation}</BotContent>
+      <BotContent>{name}</BotContent>
+    </Bot>
+  );
+};
+
+export default BotGridItem;
