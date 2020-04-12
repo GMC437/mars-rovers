@@ -1,7 +1,13 @@
 import { initState, roverReducer } from "./index";
 import { actionNames } from "../enum";
 
-const { RESET_ROVERS, CONTROL_ROVER, SET_CURRENT_POSITION } = actionNames;
+const {
+  ADD_NEW_BOT,
+  RESET_ROVERS,
+  SET_BOT_VALUE,
+  CONTROL_ROVER,
+  SET_CURRENT_POSITION,
+} = actionNames;
 const mockState = {
   bots: [
     {
@@ -28,6 +34,27 @@ const mockState = {
 };
 
 describe("reducers", () => {
+  describe("ADD_NEW_BOT", () => {
+    it("ADD_NEW_BOT with mockAction", () => {
+      const mockAction = {
+        type: ADD_NEW_BOT,
+        newBot: {
+          id: "bot3",
+          name: "tony",
+          route: "LMLMLM",
+          currentRoute: [],
+          startPosition: "3 2 N",
+          currentPosition: "1 0 N",
+          status: "done",
+        },
+      };
+      const { bots } = roverReducer(mockState, mockAction);
+      const mockBot = bots.find((b) => b.id === mockAction.newBot.id);
+
+      expect(mockBot.id).toBe("bot3");
+      expect(bots.length).toBe(3);
+    });
+  });
   describe("CONTROL_ROVER", () => {
     it("CONTROL_ROVER with bot2 L", () => {
       const mockAction = { type: CONTROL_ROVER, bot: "bot2", move: "L" };
@@ -56,6 +83,20 @@ describe("reducers", () => {
       const mockBot = bots.find((b) => b.id === mockAction.bot);
 
       expect(mockBot.currentPosition).toBe("2 1 N");
+    });
+  });
+  describe("SET_BOT_VALUE", () => {
+    it("SET_BOT_VALUE with mockState", () => {
+      const mockAction = {
+        type: SET_BOT_VALUE,
+        bot: "bot1",
+        botKey: "name",
+        botValue: "Tony",
+      };
+      const { bots } = roverReducer(mockState, mockAction);
+      const mockBot = bots.find((b) => b.id === mockAction.bot);
+
+      expect(mockBot.name).toBe("Tony");
     });
   });
   describe("roverReducer", () => {

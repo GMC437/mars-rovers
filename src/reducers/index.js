@@ -2,7 +2,9 @@ import { combineReducers } from "redux";
 import { actionNames } from "../enum";
 
 const {
+  ADD_NEW_BOT,
   SET_GRID_AXIS,
+  SET_BOT_VALUE,
   SET_CURRENT_POSITION,
   CONTROL_ROVER,
   RESET_ROVERS,
@@ -14,6 +16,11 @@ export const initState = {
 export const roverReducer = (state = initState, action) => {
   let bot;
   switch (action.type) {
+    case ADD_NEW_BOT:
+      return {
+        ...state,
+        bots: [...state.bots, action.newBot],
+      };
     case RESET_ROVERS:
       const cleanedBots = state.bots.map((b) => {
         b.currentRoute = [];
@@ -37,6 +44,14 @@ export const roverReducer = (state = initState, action) => {
       return {
         ...state,
         bots: [...state.bots, bot],
+      };
+    case SET_BOT_VALUE:
+      const { botKey, botValue } = action;
+      bot = state.bots.find((b) => b.id === action.bot);
+      bot[botKey] = botValue;
+      return {
+        ...state,
+        bots: [...state.bots],
       };
     case SET_GRID_AXIS:
       const { axisKey, axisValue } = action;
