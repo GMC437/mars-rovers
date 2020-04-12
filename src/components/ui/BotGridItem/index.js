@@ -3,12 +3,13 @@ import styled from "styled-components";
 
 const Bot = styled.span`
   height: 40px;
-  width: 40px;
+  width: 30px;
   border: 1px solid black;
   color: white;
   text-align: center;
   background-color: #8e44ad;
-  flex-basis: 45%;
+  flex-basis: 50%;
+  margin: 2px;
 `;
 
 const BotContent = styled.div`

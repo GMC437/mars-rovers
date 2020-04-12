@@ -3,10 +3,10 @@ import { useSelector } from "react-redux";
 import MarsGrid from "../../ui/MarsGrid";
 
 const MapViewSection = () => {
-  const { x, y } = useSelector((state) => state);
+  const { x, y, bots } = useSelector((state) => state);
   return (
     <section>
-      <MarsGrid xAxis={x} yAxis={y} />
+      <MarsGrid xAxis={x} yAxis={y} bots={bots} />
     </section>
   );
 };

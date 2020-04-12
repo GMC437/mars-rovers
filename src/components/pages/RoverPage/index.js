@@ -22,7 +22,7 @@ const newBot = (index) => {
 const RoverPage = ({ pageTitle }) => {
   const dispatch = useDispatch();
   const { bots, x, y } = useSelector((state) => state);
-
+  const [bot1, bot2] = bots;
   useEffect(() => {
     dispatch(addNewBot(newBot(1)));
     dispatch(addNewBot(newBot(2)));
@@ -46,10 +46,10 @@ const RoverPage = ({ pageTitle }) => {
           />
           <BotOutputSection
             title="Bot 1"
-            name={bots[0].name}
-            position={bots[0].currentPosition}
-            route={bots[0].currentRoute.join("")}
-            status={bots[0].status}
+            name={bot1.name}
+            position={bot1.currentPosition}
+            route={bot1.currentRoute.join("")}
+            status={bot1.status}
           />
           <BotInputSection
             botId="bot2"
@@ -59,10 +59,10 @@ const RoverPage = ({ pageTitle }) => {
           />
           <BotOutputSection
             title="Bot 2"
-            name={bots[1].name}
-            position={bots[1].currentPosition}
-            route={bots[1].currentRoute.join("")}
-            status={bots[1].status}
+            name={bot2.name}
+            position={bot2.currentPosition}
+            route={bot2.currentRoute.join("")}
+            status={bot2.status}
           />
           <BotControlSection />
           <br />

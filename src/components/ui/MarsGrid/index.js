@@ -20,18 +20,60 @@ const GridItemDetail = styled.span`
 
 const BotsContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: space-evenly;
   padding-top: 5px;
 `;
 
-const MarsGrid = ({ xAxis, yAxis }) => {
+const setBotGridPosition = (bot1, bot2, cell) => {
+  const cellSplit = cell.split("-");
+  const bot1PositionSplit = bot1.currentPosition.split(" ");
+  const bot2PositionSplit = bot2.currentPosition.split(" ");
+  const bot1Coords = `${bot1PositionSplit[0]}-${bot1PositionSplit[1]}`;
+  const bot2Coords = `${bot2PositionSplit[0]}-${bot2PositionSplit[1]}`;
+  const bot1Name = `${bot1.name.substring(0, 1)}1`;
+  const bot2Name = `${bot2.name.substring(0, 1)}2`;
+  if (bot1Coords === cell && bot2Coords === cell) {
+    return (
+      <>
+        <GridItemDetail>{`${cellSplit[0]}, ${cellSplit[1]}`}</GridItemDetail>
+        <BotsContainer>
+          <BotGridItem name={bot1Name} orientation="↑" />
+          <BotGridItem name={bot2Name} orientation="↑" />
+        </BotsContainer>
+      </>
+    );
+  } else if (bot1Coords === cell) {
+    return (
+      <>
+        <GridItemDetail>{`${cellSplit[0]}, ${cellSplit[1]}`}</GridItemDetail>
+        <BotsContainer>
+          <BotGridItem name={bot1Name} orientation="↑" />
+        </BotsContainer>
+      </>
+    );
+  } else if (bot2Coords === cell) {
+    return (
+      <>
+        <GridItemDetail>{`${cellSplit[0]}, ${cellSplit[1]}`}</GridItemDetail>
+        <BotsContainer>
+          <BotGridItem name={bot2Name} orientation="↑" />
+        </BotsContainer>
+      </>
+    );
+  } else {
+    return (
+      <GridItemDetail>{`${cellSplit[0]}, ${cellSplit[1]}`}</GridItemDetail>
+    );
+  }
+};
+
+const MarsGrid = ({ xAxis, yAxis, bots }) => {
+  const [bot1, bot2] = bots;
   const gridCells = getGridCells(xAxis, yAxis, true);
   const gridCellsItems = gridCells.map((cell) => {
-    const cellSplit = cell.split("-");
     return (
-      <GridItem key={cell}>
-        <GridItemDetail>{`${cellSplit[0]}, ${cellSplit[1]}`}</GridItemDetail>
-      </GridItem>
+      <GridItem key={cell}>{setBotGridPosition(bot1, bot2, cell)}</GridItem>
     );
   });
 
