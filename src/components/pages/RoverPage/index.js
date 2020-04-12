@@ -64,7 +64,7 @@ const RoverPage = ({ pageTitle }) => {
             route={bot2.currentRoute.join("")}
             status={bot2.status}
           />
-          <BotControlSection />
+          <BotControlSection bots={bots} />
           <br />
           <MapViewSection />
         </>
