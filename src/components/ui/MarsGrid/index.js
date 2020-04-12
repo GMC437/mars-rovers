@@ -1,12 +1,15 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
+import { getGridCells } from "../../../helper/grid";
 import GridItem from "../GridItem";
 import BotGridItem from "../BotGridItem";
 
 const GridContainer = styled.ul`
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(${(props) => props.theme.colSize}, auto);
+  grid-template-rows: repeat(${(props) =>
+    props.theme.rowSize}, var(--gridHeight))
   grid-column-gap: 1px;
   grid-row-gap: 1px;
 `;
@@ -21,43 +24,28 @@ const BotsContainer = styled.div`
   padding-top: 5px;
 `;
 
-const MarsGrid = () => {
+const MarsGrid = ({ xAxis, yAxis }) => {
+  const gridCells = getGridCells(xAxis, yAxis, true);
+  const gridCellsItems = gridCells.map((cell) => {
+    const cellSplit = cell.split("-");
+    return (
+      <GridItem key={cell}>
+        <GridItemDetail>{`${cellSplit[0]}, ${cellSplit[1]}`}</GridItemDetail>
+      </GridItem>
+    );
+  });
+
+  const theme = {
+    colSize: xAxis,
+    rowSize: yAxis,
+  };
+
   return (
     <div>
       Mars Grid
-      <GridContainer>
-        <GridItem key="2-0">
-          <GridItemDetail>2, 0</GridItemDetail>
-        </GridItem>
-        <GridItem key="2-1">
-          <GridItemDetail>2, 1</GridItemDetail>
-        </GridItem>
-        <GridItem key="2-2">
-          <GridItemDetail>2, 2</GridItemDetail>
-        </GridItem>
-        <GridItem key="1-0">
-          <GridItemDetail>1, 0</GridItemDetail>
-        </GridItem>
-        <GridItem key="1-1">
-          <GridItemDetail>1, 1</GridItemDetail>
-        </GridItem>
-        <GridItem key="1-2">
-          <GridItemDetail>1, 2</GridItemDetail>
-        </GridItem>
-        <GridItem key="0-0">
-          <GridItemDetail>0, 0</GridItemDetail>
-          <BotsContainer>
-            <BotGridItem name="B1" orientation="↑" />
-            <BotGridItem name="B2" orientation="↑" />
-          </BotsContainer>
-        </GridItem>
-        <GridItem key="0-1">
-          <GridItemDetail>0, 1</GridItemDetail>
-        </GridItem>
-        <GridItem key="0-2">
-          <GridItemDetail>0, 2</GridItemDetail>
-        </GridItem>
-      </GridContainer>
+      <ThemeProvider theme={theme}>
+        <GridContainer>{gridCellsItems}</GridContainer>
+      </ThemeProvider>
     </div>
   );
 };

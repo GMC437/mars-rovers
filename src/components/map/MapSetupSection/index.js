@@ -14,6 +14,9 @@ const MapSetupSection = () => {
   const dispatch = useDispatch();
   const onChange = (axisKey, axisValue) => {
     dispatch(setGridAxis(axisKey, axisValue));
+    if (axisKey === "x") {
+      document.documentElement.style.setProperty("--colNum", axisValue);
+    }
   };
   return (
     <section>
