@@ -16,3 +16,13 @@ export const getGridCells = (xAxis, yAxis, isZeroIndex) => {
   }
   return cells;
 };
+
+export const getBotOrientation = (orientation) => {
+  let compass = new Map();
+  compass.set("N", "↑");
+  compass.set("E", "→");
+  compass.set("S", "↓");
+  compass.set("W", "←");
+
+  return compass.get(orientation);
+};

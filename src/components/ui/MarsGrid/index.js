@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { getGridCells } from "../../../helper/grid";
+import { getGridCells, getBotOrientation } from "../../../helper/grid";
 import GridItem from "../GridItem";
 import BotGridItem from "../BotGridItem";
 
@@ -38,8 +38,8 @@ const setBotGridPosition = (bot1, bot2, cell) => {
       <>
         <GridItemDetail>{`${cellSplit[0]}, ${cellSplit[1]}`}</GridItemDetail>
         <BotsContainer>
-          <BotGridItem name={bot1Name} orientation="↑" />
-          <BotGridItem name={bot2Name} orientation="↑" />
+          <BotGridItem name={bot1Name} orientation={getBotOrientation(bot1PositionSplit[2])} />
+          <BotGridItem name={bot2Name} orientation={getBotOrientation(bot2PositionSplit[2])} />
         </BotsContainer>
       </>
     );
@@ -48,7 +48,7 @@ const setBotGridPosition = (bot1, bot2, cell) => {
       <>
         <GridItemDetail>{`${cellSplit[0]}, ${cellSplit[1]}`}</GridItemDetail>
         <BotsContainer>
-          <BotGridItem name={bot1Name} orientation="↑" />
+          <BotGridItem name={bot1Name} orientation={getBotOrientation(bot1PositionSplit[2])} />
         </BotsContainer>
       </>
     );
@@ -57,7 +57,7 @@ const setBotGridPosition = (bot1, bot2, cell) => {
       <>
         <GridItemDetail>{`${cellSplit[0]}, ${cellSplit[1]}`}</GridItemDetail>
         <BotsContainer>
-          <BotGridItem name={bot2Name} orientation="↑" />
+          <BotGridItem name={bot2Name} orientation={getBotOrientation(bot2PositionSplit[2])} />
         </BotsContainer>
       </>
     );
@@ -70,7 +70,7 @@ const setBotGridPosition = (bot1, bot2, cell) => {
 
 const MarsGrid = ({ xAxis, yAxis, bots }) => {
   const [bot1, bot2] = bots;
-  const gridCells = getGridCells(xAxis, yAxis, true);
+  const gridCells = getGridCells(xAxis, yAxis, false);
   const gridCellsItems = gridCells.map((cell) => {
     return (
       <GridItem key={cell}>{setBotGridPosition(bot1, bot2, cell)}</GridItem>

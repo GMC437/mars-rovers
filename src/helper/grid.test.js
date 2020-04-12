@@ -1,4 +1,4 @@
-import { getGridCells } from "./grid";
+import { getGridCells, getBotOrientation } from "./grid";
 
 describe("Grid helper functions", () => {
   describe("getGridCells function", () => {
@@ -20,6 +20,29 @@ describe("Grid helper functions", () => {
       expect(gridCells[0]).toEqual("1-5");
       expect(gridCells[gridCellsSize - 1]).toEqual("5-1");
       expect(gridCellsSize).toEqual(25);
+    });
+  });
+
+  describe("getBotOrientation function", () => {
+    it(`getBotOrientation with N`, () => {
+      const orientation = "N";
+
+      expect(getBotOrientation(orientation)).toEqual("↑");
+    });
+    it(`getBotOrientation with E`, () => {
+      const orientation = "E";
+
+      expect(getBotOrientation(orientation)).toEqual("→");
+    });
+    it(`getBotOrientation with S`, () => {
+      const orientation = "S";
+
+      expect(getBotOrientation(orientation)).toEqual("↓");
+    });
+    it(`getBotOrientation with W`, () => {
+      const orientation = "W";
+
+      expect(getBotOrientation(orientation)).toEqual("←");
     });
   });
 });
