@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import GridItem from "../GridItem";
 import BotGridItem from "../BotGridItem";
 
 const GridContainer = styled.ul`
@@ -8,18 +9,6 @@ const GridContainer = styled.ul`
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 1px;
   grid-row-gap: 1px;
-`;
-
-const GridItem = styled.li`
-  border: 2px solid red;
-  margin: 2px;
-  padding: 2px;
-  height: 80px;
-  width: 80px;
-
-  display: relative;
-  align-items: center;
-  justify-items: center;
 `;
 
 const GridItemDetail = styled.span`
