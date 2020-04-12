@@ -70,7 +70,7 @@ const setBotGridPosition = (bot1, bot2, cell) => {
 
 const MarsGrid = ({ xAxis, yAxis, bots }) => {
   const [bot1, bot2] = bots;
-  const gridCells = getGridCells(xAxis, yAxis, false);
+  const gridCells = getGridCells(xAxis, yAxis, true);
   const gridCellsItems = gridCells.map((cell) => {
     return (
       <GridItem key={cell}>{setBotGridPosition(bot1, bot2, cell)}</GridItem>
