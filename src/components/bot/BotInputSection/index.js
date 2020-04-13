@@ -1,9 +1,22 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import styled from "styled-components";
 import BotNameInput from "../../ui/BotNameInput";
 import StartPositionInput from "../../ui/StartPositionInput";
 import RouteInput from "../../ui/RouteInput";
 import { setBotValue } from "../../../actions";
+
+const SectionContainer = styled.section`
+  color: white;
+  background-color: #1565c0;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: stretch;
+  border: 2px solid black;
+  padding: 20px;
+  margin: 0 auto;
+  width: fit-content;
+`;
 
 const BotInputSection = ({ title, botId, xAxisSize, yAxisSize }) => {
   const dispatch = useDispatch();
@@ -19,7 +32,7 @@ const BotInputSection = ({ title, botId, xAxisSize, yAxisSize }) => {
   };
 
   return (
-    <section>
+    <SectionContainer>
       <div>{title}</div>
       <BotNameInput botId={botId} title={title} onChange={onBotNameChange} />
       <StartPositionInput
@@ -28,7 +41,7 @@ const BotInputSection = ({ title, botId, xAxisSize, yAxisSize }) => {
         onChange={onStartPositionChange}
       />
       <RouteInput onClick={onRouteChange} />
-    </section>
+    </SectionContainer>
   );
 };
 

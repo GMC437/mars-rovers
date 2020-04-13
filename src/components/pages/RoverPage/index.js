@@ -1,11 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 import BotControlSection from "../../bot/BotControlSection";
 import BotInputSection from "../../bot/BotInputSection";
 import BotOutputSection from "../../bot/BotOutputSection";
 import MapSetupSection from "../../map/MapSetupSection";
 import MapViewSection from "../../map/MapViewSection";
 import { addNewBot, setGridAxis } from "../../../actions";
+
+const DivStyled = styled.div`
+  display: flex;
+  margin: 5px;
+`;
 
 const newBot = (index) => {
   return {
@@ -38,32 +44,36 @@ const RoverPage = ({ pageTitle }) => {
       ) : (
         <>
           <MapSetupSection />
-          <BotInputSection
-            botId="bot1"
-            title="Bot 1"
-            xAxisSize={x}
-            yAxisSize={y}
-          />
-          <BotOutputSection
-            title="Bot 1"
-            name={bot1.name}
-            position={bot1.currentPosition}
-            route={bot1.currentRoute.join("")}
-            status={bot1.status}
-          />
-          <BotInputSection
-            botId="bot2"
-            title="Bot 2"
-            xAxisSize={x}
-            yAxisSize={y}
-          />
-          <BotOutputSection
-            title="Bot 2"
-            name={bot2.name}
-            position={bot2.currentPosition}
-            route={bot2.currentRoute.join("")}
-            status={bot2.status}
-          />
+          <DivStyled>
+            <BotInputSection
+              botId="bot1"
+              title="Bot 1"
+              xAxisSize={x}
+              yAxisSize={y}
+            />
+            <BotOutputSection
+              title="Bot 1"
+              name={bot1.name}
+              position={bot1.currentPosition}
+              route={bot1.currentRoute.join("")}
+              status={bot1.status}
+            />
+          </DivStyled>
+          <DivStyled>
+            <BotInputSection
+              botId="bot2"
+              title="Bot 2"
+              xAxisSize={x}
+              yAxisSize={y}
+            />
+            <BotOutputSection
+              title="Bot 2"
+              name={bot2.name}
+              position={bot2.currentPosition}
+              route={bot2.currentRoute.join("")}
+              status={bot2.status}
+            />
+          </DivStyled>
           <BotControlSection bots={bots} xAxis={x} yAxis={y} />
           <MapViewSection />
         </>
