@@ -78,8 +78,8 @@ const StartPositionInput = ({ xAxisSize, yAxisSize, onChange }) => {
 };
 
 StartPositionInput.propTypes = {
-  xAxisSize: PropTypes.number.isRequired,
-  yAxisSize: PropTypes.number.isRequired,
+  xAxisSize: PropTypes.string.isRequired,
+  yAxisSize: PropTypes.string.isRequired,
 };
 
 export default StartPositionInput;

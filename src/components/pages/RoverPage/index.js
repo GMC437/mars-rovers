@@ -36,8 +36,8 @@ const RoverPage = ({ pageTitle }) => {
   useEffect(() => {
     dispatch(addNewBot(newBot(1)));
     dispatch(addNewBot(newBot(2)));
-    dispatch(setGridAxis("x", 5));
-    dispatch(setGridAxis("y", 5));
+    dispatch(setGridAxis("x", "5"));
+    dispatch(setGridAxis("y", "5"));
   }, [dispatch]);
 
   return (

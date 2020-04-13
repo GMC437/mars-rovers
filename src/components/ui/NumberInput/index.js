@@ -41,7 +41,7 @@ NumberInput.propTypes = {
   axis: PropTypes.string.isRequired,
   inputId: PropTypes.string.isRequired,
   labelMessage: PropTypes.string.isRequired,
-  initValue: PropTypes.number.isRequired,
+  initValue: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
