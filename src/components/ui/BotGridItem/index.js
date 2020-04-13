@@ -4,10 +4,10 @@ import styled from "styled-components";
 const Bot = styled.span`
   height: 40px;
   width: 30px;
-  border: 1px solid black;
-  color: white;
+  border: 1px solid white;
+  color: #FFF;
   text-align: center;
-  background-color: #8e44ad;
+  background-color: #1565c0;
   flex-basis: 50%;
   margin: 2px;
 `;

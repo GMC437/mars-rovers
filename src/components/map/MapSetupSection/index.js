@@ -7,16 +7,13 @@ import NumberInput from "../../ui/NumberInput";
 const InputContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
-  align-items: stretch;
+  justify-content: center;
 `;
 
 const MapSetupSection = () => {
   const dispatch = useDispatch();
   const onChange = (axisKey, axisValue) => {
     dispatch(setGridAxis(axisKey, axisValue));
-    if (axisKey === "x") {
-      document.documentElement.style.setProperty("--colNum", axisValue);
-    }
   };
   return (
     <section>
@@ -25,14 +22,14 @@ const MapSetupSection = () => {
           axis="x"
           inputId="x-axis-size-value"
           labelMessage="Enter length of X axis:"
-          initValue={5}
+          initValue="5"
           onChange={onChange}
         />
         <NumberInput
           axis="y"
           inputId="y-axis-size-value"
           labelMessage="Enter length of Y axis:"
-          initValue={5}
+          initValue="5"
           onChange={onChange}
         />
       </InputContainer>

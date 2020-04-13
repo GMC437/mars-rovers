@@ -3,12 +3,15 @@ import propTypes from "prop-types";
 import styled from "styled-components";
 
 const SectionContainer = styled.section`
+  color: white;
+  background-color: #1565c0;
   display: flex;
   flex-flow: column wrap;
   align-items: stretch;
-  border-style: solid;
-  padding: 4px;
-  margin: 1px;
+  border: 2px solid black;
+  padding: 20px;
+  margin: 5px;
+  width: fit-content;
 `;
 
 const BotOutputSection = ({ title, name, position, route, status }) => {

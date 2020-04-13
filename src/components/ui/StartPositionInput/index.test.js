@@ -5,7 +5,7 @@ import StartPositionInput from "./index";
 describe("StartPositionInput", () => {
   it("StartPositionInput input new X axis position", () => {
     const { getByTestId } = render(
-      <StartPositionInput xAxisSize={3} yAxisSize={3} onChange={() => {}} />
+      <StartPositionInput botId="bot1" xAxisSize="3" yAxisSize="3" onChange={() => {}} />
     );
     const input = getByTestId("x-axis-start-position");
 
@@ -16,7 +16,7 @@ describe("StartPositionInput", () => {
 
   it("StartPositionInput input new Y axis position", () => {
     const { getByTestId } = render(
-      <StartPositionInput xAxisSize={3} yAxisSize={3} onChange={() => {}} />
+      <StartPositionInput botId="bot1" xAxisSize="3" yAxisSize="3" onChange={() => {}} />
     );
     const input = getByTestId("y-axis-start-position");
 
@@ -27,7 +27,7 @@ describe("StartPositionInput", () => {
 
   it("StartPositionInput input new direction", () => {
     const { getByTestId } = render(
-      <StartPositionInput xAxisSize={3} yAxisSize={3} onChange={() => {}} />
+      <StartPositionInput botId="bot1" xAxisSize="3" yAxisSize="3" onChange={() => {}} />
     );
     const input = getByTestId("start-direction");
 
