@@ -3,8 +3,19 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const DivStyled = styled.div`
-    margin: 5px 0;
-`
+  margin: 5px 0;
+`;
+const InputStyled = styled.input`
+  vertical-align: middle;
+  margin: 2px 5px;
+  text-align: center;
+  padding: 2px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+`;
+const SelectStyled = styled.select`
+  margin: 2px 5px;
+`;
 
 const StartPositionInput = ({ xAxisSize, yAxisSize, onChange }) => {
   const [xAxisValue, setXAxisValue] = useState(0);
@@ -15,7 +26,7 @@ const StartPositionInput = ({ xAxisSize, yAxisSize, onChange }) => {
     <DivStyled>
       <div>
         <label htmlFor="x-axis-start-position">X Axis start position:</label>
-        <input
+        <InputStyled
           id="x-axis-start-position"
           data-testid="x-axis-start-position"
           type="number"
@@ -27,11 +38,11 @@ const StartPositionInput = ({ xAxisSize, yAxisSize, onChange }) => {
             onChange(`${value} ${yAxisValue} ${directionValue}`);
           }}
           value={xAxisValue}
-        ></input>
+        ></InputStyled>
       </div>
       <div>
         <label htmlFor="y-axis-start-position">Y Axis start position:</label>
-        <input
+        <InputStyled
           id="y-axis-start-position"
           data-testid="y-axis-start-position"
           type="number"
@@ -43,11 +54,11 @@ const StartPositionInput = ({ xAxisSize, yAxisSize, onChange }) => {
             onChange(`${xAxisValue} ${value} ${directionValue}`);
           }}
           value={yAxisValue}
-        ></input>
+        ></InputStyled>
       </div>
       <div>
         <label htmlFor="start-direction">Choose a direction:</label>
-        <select
+        <SelectStyled
           id="start-direction"
           data-testid="start-direction"
           value={directionValue}
@@ -60,7 +71,7 @@ const StartPositionInput = ({ xAxisSize, yAxisSize, onChange }) => {
           <option value="E">East</option>
           <option value="W">West</option>
           <option value="S">South</option>
-        </select>
+        </SelectStyled>
       </div>
     </DivStyled>
   );
