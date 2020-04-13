@@ -17,7 +17,7 @@ const SelectStyled = styled.select`
   margin: 2px 5px;
 `;
 
-const StartPositionInput = ({ xAxisSize, yAxisSize, onChange }) => {
+const StartPositionInput = ({ botId, xAxisSize, yAxisSize, onChange }) => {
   const [xAxisValue, setXAxisValue] = useState(0);
   const [yAxisValue, setYAxisValue] = useState(0);
   const [directionValue, setDirectionValue] = useState("N");
@@ -25,9 +25,11 @@ const StartPositionInput = ({ xAxisSize, yAxisSize, onChange }) => {
   return (
     <DivStyled>
       <div>
-        <label htmlFor="x-axis-start-position">X Axis start position:</label>
+        <label htmlFor={`${botId}-x-axis-start-position`}>
+          X Axis start position:
+        </label>
         <InputStyled
-          id="x-axis-start-position"
+          id={`${botId}-x-axis-start-position`}
           data-testid="x-axis-start-position"
           type="number"
           min="0"
@@ -41,9 +43,11 @@ const StartPositionInput = ({ xAxisSize, yAxisSize, onChange }) => {
         ></InputStyled>
       </div>
       <div>
-        <label htmlFor="y-axis-start-position">Y Axis start position:</label>
+        <label htmlFor={`${botId}-y-axis-start-position`}>
+          Y Axis start position:
+        </label>
         <InputStyled
-          id="y-axis-start-position"
+          id={`${botId}-y-axis-start-position`}
           data-testid="y-axis-start-position"
           type="number"
           min="0"
@@ -57,9 +61,9 @@ const StartPositionInput = ({ xAxisSize, yAxisSize, onChange }) => {
         ></InputStyled>
       </div>
       <div>
-        <label htmlFor="start-direction">Choose a direction:</label>
+        <label htmlFor={`${botId}-start-direction`}>Choose a direction:</label>
         <SelectStyled
-          id="start-direction"
+          id={`${botId}-start-direction`}
           data-testid="start-direction"
           value={directionValue}
           onChange={({ target: { value } }) => {
@@ -78,8 +82,10 @@ const StartPositionInput = ({ xAxisSize, yAxisSize, onChange }) => {
 };
 
 StartPositionInput.propTypes = {
+  botId: PropTypes.string.isRequired,
   xAxisSize: PropTypes.string.isRequired,
   yAxisSize: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default StartPositionInput;

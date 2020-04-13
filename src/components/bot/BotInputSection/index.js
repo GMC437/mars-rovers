@@ -36,6 +36,7 @@ const BotInputSection = ({ title, botId, xAxisSize, yAxisSize }) => {
       <div>{title}</div>
       <BotNameInput botId={botId} title={title} onChange={onBotNameChange} />
       <StartPositionInput
+        botId={botId}
         xAxisSize={xAxisSize}
         yAxisSize={yAxisSize}
         onChange={onStartPositionChange}
