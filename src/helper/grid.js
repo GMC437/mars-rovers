@@ -18,9 +18,13 @@ export const getGridCells = (xAxis, yAxis, isZeroIndex) => {
 };
 
 export const isValidMove = (move, xAxis, yAxis, isZeroIndex) => {
-    const gridCells = getGridCells(xAxis, yAxis, isZeroIndex);
-    return gridCells.includes(move);
-}
+  const botPositionSplit = move.split(" ");
+  const botCoords = `${botPositionSplit[0]}-${botPositionSplit[1]}`;
+  const gridCells = getGridCells(xAxis, yAxis, isZeroIndex);
+  const isValid = gridCells.includes(botCoords);
+
+  return isValid;
+};
 
 export const getBotOrientation = (orientation) => {
   let compass = new Map();

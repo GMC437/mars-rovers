@@ -25,13 +25,28 @@ describe("Grid helper functions", () => {
 
   describe("isValidMove function", () => {
     it(`isValidMove with isZeroIndex true`, () => {
-        const move = "5 6 N";
-        const xAxis = "5";
-        const yAxis = "5";
-  
-        expect(isValidMove(move, xAxis, yAxis, true)).not.toEqual(true);
+      const move = "5 6 N";
+      const xAxis = "5";
+      const yAxis = "5";
+
+      expect(isValidMove(move, xAxis, yAxis, true)).toEqual(false);
     });
 
+    it(`isValidMove with isZeroIndex false`, () => {
+      const move = "5 6 N";
+      const xAxis = "5";
+      const yAxis = "5";
+
+      expect(isValidMove(move, xAxis, yAxis, false)).toEqual(false);
+    });
+
+    it(`isValidMove with isZeroIndex true and valid move`, () => {
+      const move = "1 1 N";
+      const xAxis = "5";
+      const yAxis = "5";
+
+      expect(isValidMove(move, xAxis, yAxis, false)).toEqual(true);
+    });
     it(`isValidMove with isZeroIndex false`, () => {
       const move = "5 6 N";
       const xAxis = "5";
