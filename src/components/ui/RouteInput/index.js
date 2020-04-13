@@ -11,7 +11,7 @@ const RouteInput = ({ onClick }) => {
         value="M"
         onClick={({ target: { value } }) => {
           setRoute([...route, value]);
-          onClick(route.join(""));
+          onClick([...route, value].join(""));
         }}
       >
         M
@@ -21,7 +21,7 @@ const RouteInput = ({ onClick }) => {
         value="L"
         onClick={({ target: { value } }) => {
           setRoute([...route, value]);
-          onClick(route.join(""));
+          onClick([...route, value].join(""));
         }}
       >
         L
@@ -31,7 +31,7 @@ const RouteInput = ({ onClick }) => {
         value="R"
         onClick={({ target: { value } }) => {
           setRoute([...route, value]);
-          onClick(route.join(""));
+          onClick([...route, value].join(""));
         }}
       >
         R
@@ -40,7 +40,7 @@ const RouteInput = ({ onClick }) => {
         type="button"
         onClick={() => {
           setRoute([...route.slice(0, route.length - 1)]);
-          onClick(route.join(""));
+          onClick([...route.slice(0, route.length - 1)].join(""));
         }}
       >
         ←
@@ -49,7 +49,7 @@ const RouteInput = ({ onClick }) => {
         type="button"
         onClick={() => {
           setRoute([]);
-          onClick(route.join(""));
+          onClick([]);
         }}
       >
         X

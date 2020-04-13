@@ -25,6 +25,22 @@ describe("rover core functions", () => {
       const position = "1 1 N";
       expect(updateRover(move, position)).toEqual("1 1 E");
     });
+
+    it(`updateRover with multi commands`, () => {
+        let position = "1 1 N";
+        position = updateRover("R", position);
+        expect(position).toEqual("1 1 E");
+        position = updateRover("M", position);
+        expect(position).toEqual("2 1 E");
+        position = updateRover("L", position);
+        expect(position).toEqual("2 1 N");
+        position = updateRover("M", position);
+        expect(position).toEqual("2 2 N");
+        position = updateRover("L", position);
+        expect(position).toEqual("2 2 W");
+        position = updateRover("L", position);
+        expect(position).toEqual("2 2 S");
+      });
   });
 
   describe("updateRoverPosition function", () => {
