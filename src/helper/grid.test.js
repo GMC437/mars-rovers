@@ -1,4 +1,4 @@
-import { getGridCells, getBotOrientation } from "./grid";
+import { getGridCells, getBotOrientation, isValidMove } from "./grid";
 
 describe("Grid helper functions", () => {
   describe("getGridCells function", () => {
@@ -20,6 +20,24 @@ describe("Grid helper functions", () => {
       expect(gridCells[0]).toEqual("1-5");
       expect(gridCells[gridCellsSize - 1]).toEqual("5-1");
       expect(gridCellsSize).toEqual(25);
+    });
+  });
+
+  describe("isValidMove function", () => {
+    it(`isValidMove with isZeroIndex true`, () => {
+        const move = "5 6 N";
+        const xAxis = "5";
+        const yAxis = "5";
+  
+        expect(isValidMove(move, xAxis, yAxis, true)).not.toEqual(true);
+    });
+
+    it(`isValidMove with isZeroIndex false`, () => {
+      const move = "5 6 N";
+      const xAxis = "5";
+      const yAxis = "5";
+
+      expect(isValidMove(move, xAxis, yAxis, false)).not.toEqual(true);
     });
   });
 

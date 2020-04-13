@@ -17,6 +17,11 @@ export const getGridCells = (xAxis, yAxis, isZeroIndex) => {
   return cells;
 };
 
+export const isValidMove = (move, xAxis, yAxis, isZeroIndex) => {
+    const gridCells = getGridCells(xAxis, yAxis, isZeroIndex);
+    return gridCells.includes(move);
+}
+
 export const getBotOrientation = (orientation) => {
   let compass = new Map();
   compass.set("N", "↑");
