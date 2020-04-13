@@ -7,8 +7,7 @@ import NumberInput from "../../ui/NumberInput";
 const InputContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
-//   align-items: stretch;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 const MapSetupSection = () => {

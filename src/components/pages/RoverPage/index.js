@@ -10,7 +10,11 @@ import { addNewBot, setGridAxis } from "../../../actions";
 
 const DivStyled = styled.div`
   display: flex;
+  justify-content: center;
   margin: 5px;
+`;
+const MainTitle = styled.h1`
+  text-align: center;
 `;
 
 const newBot = (index) => {
@@ -38,7 +42,7 @@ const RoverPage = ({ pageTitle }) => {
 
   return (
     <div>
-      <h1>{pageTitle}</h1>
+      <MainTitle>{pageTitle}</MainTitle>
       {bots.length < 2 ? (
         <div>Mars Rovers is loading</div>
       ) : (
