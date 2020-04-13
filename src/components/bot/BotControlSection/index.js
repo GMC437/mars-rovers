@@ -8,9 +8,12 @@ const startRoversClick = (bots, dispatch) => {
   resetRoversClick(bots, dispatch);
   bots.forEach((bot) => {
     const { id, currentPosition } = bot;
+    let botCurrentPosition = currentPosition;
+    
     bot.route.split("").forEach((move) => {
-      const updatePosition = updateRover(move, currentPosition);
-      // setBotValue = (bot, botKey, botValue)
+      const updatePosition = updateRover(move, botCurrentPosition);
+      botCurrentPosition = updatePosition;
+     
       dispatch(setBotValue(bot.id, "currentPosition", updatePosition));
       dispatch(controlRover(id, move));
     });
