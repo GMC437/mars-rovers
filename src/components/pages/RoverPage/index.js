@@ -43,39 +43,43 @@ const RoverPage = ({ pageTitle }) => {
         <div>Mars Rovers is loading</div>
       ) : (
         <>
-          <MapSetupSection />
-          <DivStyled>
-            <BotInputSection
-              botId="bot1"
-              title="Bot 1"
-              xAxisSize={x}
-              yAxisSize={y}
-            />
-            <BotOutputSection
-              title="Bot 1"
-              name={bot1.name}
-              position={bot1.currentPosition}
-              route={bot1.currentRoute.join("")}
-              status={bot1.status}
-            />
-          </DivStyled>
-          <DivStyled>
-            <BotInputSection
-              botId="bot2"
-              title="Bot 2"
-              xAxisSize={x}
-              yAxisSize={y}
-            />
-            <BotOutputSection
-              title="Bot 2"
-              name={bot2.name}
-              position={bot2.currentPosition}
-              route={bot2.currentRoute.join("")}
-              status={bot2.status}
-            />
-          </DivStyled>
-          <BotControlSection bots={bots} xAxis={x} yAxis={y} />
-          <MapViewSection />
+          <div>
+            <MapSetupSection />
+            <DivStyled>
+              <BotInputSection
+                botId="bot1"
+                title="Bot 1"
+                xAxisSize={x}
+                yAxisSize={y}
+              />
+              <BotOutputSection
+                title="Bot 1"
+                name={bot1.name}
+                position={bot1.currentPosition}
+                route={bot1.currentRoute.join("")}
+                status={bot1.status}
+              />
+            </DivStyled>
+            <DivStyled>
+              <BotInputSection
+                botId="bot2"
+                title="Bot 2"
+                xAxisSize={x}
+                yAxisSize={y}
+              />
+              <BotOutputSection
+                title="Bot 2"
+                name={bot2.name}
+                position={bot2.currentPosition}
+                route={bot2.currentRoute.join("")}
+                status={bot2.status}
+              />
+            </DivStyled>
+          </div>
+          <div>
+            <BotControlSection bots={bots} xAxis={x} yAxis={y} />
+            <MapViewSection />
+          </div>
         </>
       )}
     </div>

@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
+
+const DivStyled = styled.div`
+    margin: 5px 0;
+`
 
 const StartPositionInput = ({ xAxisSize, yAxisSize, onChange }) => {
   const [xAxisValue, setXAxisValue] = useState(0);
@@ -7,7 +12,7 @@ const StartPositionInput = ({ xAxisSize, yAxisSize, onChange }) => {
   const [directionValue, setDirectionValue] = useState("N");
 
   return (
-    <div>
+    <DivStyled>
       <div>
         <label htmlFor="x-axis-start-position">X Axis start position:</label>
         <input
@@ -57,7 +62,7 @@ const StartPositionInput = ({ xAxisSize, yAxisSize, onChange }) => {
           <option value="S">South</option>
         </select>
       </div>
-    </div>
+    </DivStyled>
   );
 };
 

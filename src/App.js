@@ -7,11 +7,13 @@ import RoverPage from "./components/pages/RoverPage";
 
 const AppContainer = styled.div`
   box-sizing: border-box;
+  width: fit-content;
+  margin: 0 auto;
 `;
 
 const App = () => {
   return (
-    <Provider store={createStore(roverReducer)} >
+    <Provider store={createStore(roverReducer)}>
       <AppContainer>
         <RoverPage pageTitle="Mars Rovers" />
       </AppContainer>

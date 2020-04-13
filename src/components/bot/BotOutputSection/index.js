@@ -10,7 +10,7 @@ const SectionContainer = styled.section`
   align-items: stretch;
   border: 2px solid black;
   padding: 20px;
-  margin: 0 auto;
+  margin: 5px;
   width: fit-content;
 `;
 

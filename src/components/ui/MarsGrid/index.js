@@ -12,6 +12,7 @@ const GridContainer = styled.ul`
     props.theme.rowSize}, var(--gridHeight))
   grid-column-gap: 1px;
   grid-row-gap: 1px;
+  padding: 0;
 `;
 
 const GridItemDetail = styled.span`
