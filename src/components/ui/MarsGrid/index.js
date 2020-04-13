@@ -12,6 +12,7 @@ const GridContainer = styled.ul`
     props.theme.rowSize}, var(--gridHeight))
   grid-column-gap: 1px;
   grid-row-gap: 1px;
+//   max-width:800px;
 `;
 
 const GridItemDetail = styled.span`
@@ -97,12 +98,9 @@ const MarsGrid = ({ xAxis, yAxis, bots }) => {
   };
 
   return (
-    <div>
-      Mars Grid
-      <ThemeProvider theme={theme}>
-        <GridContainer>{gridCellsItems}</GridContainer>
-      </ThemeProvider>
-    </div>
+    <ThemeProvider theme={theme}>
+      <GridContainer>{gridCellsItems}</GridContainer>
+    </ThemeProvider>
   );
 };
 

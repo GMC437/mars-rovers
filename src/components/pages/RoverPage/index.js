@@ -65,7 +65,6 @@ const RoverPage = ({ pageTitle }) => {
             status={bot2.status}
           />
           <BotControlSection bots={bots} xAxis={x} yAxis={y} />
-          <br />
           <MapViewSection />
         </>
       )}

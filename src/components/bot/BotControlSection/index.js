@@ -1,8 +1,14 @@
 import React from "react";
+import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { setBotValue, controlRover, resetRovers } from "../../../actions";
 import { isValidMove } from "../../../helper/grid";
 import { updateRover } from "../../../helper/rover";
+
+const ButtonStyled = styled.button`
+    background-color: black;
+    color: white;
+`
 
 const startRoversClick = (bots, xAxis, yAxis, dispatch) => {
   resetRoversClick(bots, dispatch);
@@ -51,16 +57,16 @@ const BotControlSection = ({ bots, xAxis, yAxis }) => {
 
   return (
     <section>
-      <button
+      <ButtonStyled
         type="button"
         onClick={() => {
           startRoversClick(bots, xAxis, yAxis, dispatch);
         }}
       >
-        Start
-      </button>
+        Start Rovers
+      </ButtonStyled>
       <button type="button" onClick={() => resetRoversClick(bots, dispatch)}>
-        Reset
+        Reset Rovers
       </button>
     </section>
   );
